@@ -1,0 +1,24 @@
+.banner {
+    transition: opacity 0.5s ease-in-out;
+}
+
+.banner.fade-out {
+    opacity: 0;
+}
+
+.hideParent {
+    display: none;
+}
+
+
+@media (min-width: 600px) and (max-width: 750px) {
+    .banner {
+        background-position: 0px -170px;
+    }
+}
+
+@media (min-width: 920px) and (max-width: 1200px) {
+    .banner {
+        background-position: 0px -300px;
+    }
+}
