@@ -3,7 +3,7 @@
 > ✨ _Stay focused. Stay organized. Stay inspired._  
 > 🎯 _Crafted for professionals, students, and remote workers who value efficiency._
 
-![WorkSphere Hero](./assets//WorkSphere-SS.png)
+![WorkSphere Hero](./assets/WorkSphere-SS.png)
 
 ---
 
@@ -55,7 +55,7 @@ This project was born out of a personal need to maintain clarity and focus in a 
 
 | Dashboard                         | Timer                 | Dark Mode                     |
 | --------------------------------- | --------------------- | ----------------------------- |
-| ![Dashboard](./assets//WorkSphere-SS.png) | ![Timer](./assets/timer.png) | ![Dark](./assets/darkWorkSphere.png) |
+| ![Dashboard](./assets/WorkSphere-SS.png) | ![Timer](./assets/timer.png) | ![Dark](./assets/darkWorkSphere.png) |
 
 👨‍💻 About Me
 Hi! I'm Keshav, a passionate Fullstack Developer actively seeking exciting job opportunities in the tech space.
