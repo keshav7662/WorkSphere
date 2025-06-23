@@ -1,24 +1,40 @@
+:root {
+  --bg-color: #ffffff;
+  --text-color: #000000;
+}
+
+.dark {
+  --bg-color: #0F172A;
+  --text-color: #ffffff;
+}
+
+
 .banner {
-    transition: opacity 0.5s ease-in-out;
+  transition: opacity 0.5s ease-in-out;
 }
 
 .banner.fade-out {
-    opacity: 0;
+  opacity: 0;
 }
 
 .hideParent {
-    display: none;
+  display: none;
 }
 
 
 @media (min-width: 600px) and (max-width: 750px) {
-    .banner {
-        background-position: 0px -170px;
-    }
+  .banner {
+    background-position: 0px -170px;
+  }
 }
 
 @media (min-width: 920px) and (max-width: 1200px) {
-    .banner {
-        background-position: 0px -300px;
-    }
+  .banner {
+    background-position: 0px -300px;
+  }
+}
+
+input[type="checkbox"] {
+  width: 20px;
+  height: 20px;
 }
