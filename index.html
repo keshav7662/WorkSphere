@@ -7,6 +7,7 @@
   <title>WorkSphere | Productivity Dashboard</title>
   <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
   <link href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/flowbite@{{< current_version >}}/dist/flowbite.min.css" rel="stylesheet" />
   <link rel="stylesheet" href="style.css">
   <link rel="shortcut icon" href="./assets/favicon.svg" type="image/x-icon">
 </head>
@@ -181,37 +182,71 @@
             Daily Planner
           </h1>
         </div>
-
-        <div class="render-planner space-y-2 overflow-y-auto">
-
-        </div>
+        <div class="render-planner space-y-2 overflow-y-auto"></div>
       </div>
     </div>
-    <div id="MotivationPage"
-      class="page hideParent bg-[var(--bg-color)] text-[var(--text-color)] py-10 px-5 min-h-screen">
-      <div class="max-w-4xl mx-auto space-y-6">
-        <div class="flex items-center mb-10">
-          <button
-            class="goHome inline-flex items-center gap-2 bg-blue-600 text-white hover:bg-blue-700 transition-colors rounded-lg px-5 py-2.5 text-sm font-medium shadow-sm cursor-pointer">
-            <i class="ri-arrow-left-line"></i>
-            <span>Back</span>
-          </button>
-          <h1 class="text-4xl font-bold mx-auto">
-            Motivational Quotes
-            <span class="block text-sm font-normal text-center italic text-gray-500">Get your Daily motivational quotes
-              here</span>
+    <div id="MotivationPage" class="page hideParent min-h-screen bg-[var(--bg-color)] text-[var(--text-color)] p-5">
+      <div class="max-w-4xl mx-auto space-y-4">
+        <!-- Back Button -->
+        <button
+          class="goHome inline-flex items-center gap-2 bg-blue-600 text-white hover:bg-blue-700 transition-colors rounded-lg px-5 py-2.5 text-sm font-medium shadow-sm cursor-pointer">
+          <i class="ri-arrow-left-line text-sm"></i>
+          <span>Back</span>
+        </button>
+
+        <!-- Title Section -->
+        <div class="text-center space-y-3">
+          <div
+            class="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-r from-orange-500 to-rose-500 text-white rounded-full shadow-lg">
+            <i class="ri-double-quotes-l text-2xl"></i>
+          </div>
+          <h1
+            class="text-4xl sm:text-5xl font-extrabold bg-gradient-to-r from-orange-600 to-rose-600 bg-clip-text text-transparent pb-4">
+            Daily Inspiration
           </h1>
+          <p class="text-base sm:text-lg text-gray-600 max-w-xl mx-auto italic">
+            Discover powerful quotes that inspire, motivate, and transform your mindset
+          </p>
+        </div>
+
+        <!-- Quote Card -->
+        <div class="bg-gray-50 rounded-2xl p-4 shadow-lg text-center min-h-36">
+          <div class="flex justify-start">
+            <i class="ri-double-quotes-l text-orange-400 text-3xl"></i>
+          </div>
+          <h2 class="renderQuote text-xl sm:text-2xl md:text-3xl font-light text-gray-800 "></h2>
+          <div class="flex justify-end">
+            <i class="ri-double-quotes-r text-orange-400 text-3xl"></i>
+          </div>
+
+          <div class="flex justify-center">
+            <h2 class="renderAuthor text-orange-600 font-medium text-2xl"></h2>
+          </div>
+        </div>
+
+        <!-- Generate Button -->
+        <div class="flex justify-center">
+          <button
+            class="generateQuote bg-blue-500 text-white font-medium text-sm sm:text-base rounded-full px-6 py-3 shadow-md hover:bg-blue-600 active:scale-95 transition-transform duration-200 flex items-center gap-2 cursor-pointer ">
+            <i class="ri-loop-left-line text-lg"></i>
+            <span>New Quote</span>
+          </button>
         </div>
       </div>
     </div>
-    <div class="page  hideParent" id="PomodoroPage">PomodoroPage
-      <button
-        class="goHome inline-flex items-center gap-2 bg-blue-600 text-white hover:bg-blue-700 cursor-pointer text-center rounded-full px-4 py-2 text-sm">
-        <i class="ri-arrow-left-line"></i>
-        <span>Back</span>
-      </button>
+    <div id="PomodoroPage" class="page hideParent min-h-screen bg-[var(--bg-color)] text-[var(--text-color)] py-10">
+      <div class="max-w-4xl mx-auto">
+        <button
+          class="goHome inline-flex items-center gap-2 bg-blue-600 text-white hover:bg-blue-700 transition-colors rounded-lg px-5 py-2.5 text-sm font-medium shadow-sm cursor-pointer">
+          <i class="ri-arrow-left-line"></i>
+          <span>Back</span>
+        </button>
+        <div class="timer-controller">
+
+        </div>
+      </div>
     </div>
-    <div class="page  hideParent" id="DailyGoalsPage">DailyGoalsPage
+    <div id="DailyGoalsPage" class="page hideParent">DailyGoalsPage
       <button
         class="goHome inline-flex items-center gap-2 bg-blue-600 text-white hover:bg-blue-700 cursor-pointer text-center rounded-full px-4 py-2 text-sm">
         <i class="ri-arrow-left-line"></i>
