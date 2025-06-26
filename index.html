@@ -13,9 +13,9 @@
 </head>
 
 <body>
-  <main>
-    <div
-      class="home min-h-screen bg-[var(--bg-color)] text-[var(--text-color)] max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 space-y-4">
+  <main class="min-h-screen bg-[var(--bg-color)] text-[var(--text-color)]">
+
+    <div class="home max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 space-y-4">
       <!-- Navbar section -->
       <section class="navbar pb-6 mb-8 flex justify-between items-center border-b border-slate-500">
         <a href="#" class="flex items-center gap-2 font-bold  text-xl border-b-2 border-r-2 rounded-md p-2">
@@ -51,8 +51,12 @@
             </p>
           </div>
           <!-- Banner display data -->
-          <div class="bannerDisplay flex items-center gap-6 text-white">
+          <div class="bannerDisplay flex items-center gap-2 text-white">
+            <h2 class="date text-gray-400 font-semibold bg-gray-400/5  px-2 py-1 rounded"> 24 May, 2025</h2>
+            <h2 class="time text-gray-400 font-semibold bg-white/5  px-2 py-1 rounded">08:20 PM</h2>
           </div>
+
+
         </div>
       </section>
       <!-- Feature Cards section -->
@@ -129,12 +133,11 @@
         </div>
       </section>
     </div>
-
     <div id="TodoPage" class="page hideParent bg-[var(--bg-color)] text-[var(--text-color)] py-10 px-5 min-h-screen">
       <div class="max-w-4xl mx-auto space-y-6">
         <div class="flex justify-between items-center mb-10">
-          <button
-            class="goHome inline-flex items-center gap-2 bg-blue-600 text-white hover:bg-blue-700 transition-colors rounded-lg px-5 py-2.5 text-sm font-medium shadow-sm cursor-pointer">
+          <button type="button"
+            class="goHome px-3 py-2 text-xs font-medium text-center text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800  rounded-lg  me-2 mb-2 cursor-pointer">
             <i class="ri-arrow-left-line"></i>
             <span>Back</span>
           </button>
@@ -172,8 +175,8 @@
       class="page hideParent bg-[var(--bg-color)] text-[var(--text-color)] py-10 px-5 min-h-screen">
       <div class="max-w-4xl mx-auto space-y-6">
         <div class="flex items-center mb-10">
-          <button
-            class="goHome inline-flex items-center gap-2 bg-blue-600 text-white hover:bg-blue-700 transition-colors rounded-lg px-5 py-2.5 text-sm font-medium shadow-sm cursor-pointer">
+          <button type="button"
+            class="goHome px-3 py-2 text-xs font-medium text-center text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800  rounded-lg  me-2 mb-2 cursor-pointer">
             <i class="ri-arrow-left-line"></i>
             <span>Back</span>
           </button>
@@ -188,9 +191,9 @@
     <div id="MotivationPage" class="page hideParent min-h-screen bg-[var(--bg-color)] text-[var(--text-color)] p-5">
       <div class="max-w-4xl mx-auto space-y-4">
         <!-- Back Button -->
-        <button
-          class="goHome inline-flex items-center gap-2 bg-blue-600 text-white hover:bg-blue-700 transition-colors rounded-lg px-5 py-2.5 text-sm font-medium shadow-sm cursor-pointer">
-          <i class="ri-arrow-left-line text-sm"></i>
+        <button type="button"
+          class="goHome px-3 py-2 text-xs font-medium text-center text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800  rounded-lg  me-2 mb-2 cursor-pointer">
+          <i class="ri-arrow-left-line"></i>
           <span>Back</span>
         </button>
 
@@ -236,8 +239,8 @@
     </div>
     <div id="PomodoroPage" class="page hideParent min-h-screen bg-[var(--bg-color)] text-[var(--text-color)] py-10">
       <div class="max-w-4xl mx-auto">
-        <button
-          class="goHome inline-flex items-center gap-2 bg-blue-600 text-white hover:bg-blue-700 transition-colors rounded-lg px-5 py-2.5 text-sm font-medium shadow-sm cursor-pointer">
+        <button type="button"
+          class="goHome px-3 py-2 text-xs font-medium text-center text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800  rounded-lg  me-2 mb-2 cursor-pointer">
           <i class="ri-arrow-left-line"></i>
           <span>Back</span>
         </button>
@@ -246,16 +249,125 @@
         </div>
       </div>
     </div>
-    <div id="DailyGoalsPage" class="page hideParent">DailyGoalsPage
-      <button
-        class="goHome inline-flex items-center gap-2 bg-blue-600 text-white hover:bg-blue-700 cursor-pointer text-center rounded-full px-4 py-2 text-sm">
-        <i class="ri-arrow-left-line"></i>
-        <span>Back</span>
-      </button>
+    <div id="DailyGoalsPage"
+      class="page hideParent min-h-screen bg-gradient-to-r from-purple-950 via-violet-900 to-fuchsia-950 py-10">
+      <div class="max-w-4xl mx-auto space-y-8">
+        <!-- Title -->
+        <div class="flex gap-6 items-center">
+          <button type="button"
+            class="goHome px-3 py-2 text-xs font-medium text-center text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800  rounded-lg  me-2 mb-2 cursor-pointer">
+            <i class="ri-arrow-left-line"></i>
+            <span>Back</span>
+          </button>
+          <div class="flex gap-4 items-center">
+            <div
+              class="w-12 h-12 bg-gradient-to-r from-purple-600 to-violet-600 rounded-full flex items-center justify-center shadow-lg">
+              <i class="ri-focus-2-line text-2xl text-white"></i>
+            </div>
+            <div>
+              <h2
+                class="text-4xl font-bold bg-gradient-to-r from-purple-300 dark:to-violet-300 bg-clip-text text-transparent">
+                DailyGoals</h2>
+              <h4 class="text-purple-600 dark:text-purple-300 flex items-center gap-2">
+                <i class="ri-calendar-line"></i>
+                <span class="date-time">24 May, 2025</span>
+              </h4>
+            </div>
+          </div>
+        </div>
+        <!-- Progress Bar -->
+        <div class="shadow-xl bg-purple-900/50 shadow-purple-900/30 backdrop-blur-sm p-6 rounded-lg">
+          <div class="flex justify-between items-center mb-6">
+            <div class="flex items-center gap-3">
+              <i class="ri-line-chart-fill text-gray-200"></i>
+              <h2 class="text-purple-100 font-semibold">Today's Progress</h2>
+            </div>
+            <div class="remaining-by-completed text-xs px-2 py-1 rounded-full bg-purple-800 text-purple-200">
+
+            </div>
+          </div>
+          <div class="loader-outer h-4 rounded-full bg-white mb-6">
+            <div class="loader-inner rounded-full w-0 h-full bg-green-400"></div>
+          </div>
+          <div class="flex justify-between items-center">
+            <h4 class="text-purple-300 font-semibold text-sm" id="completeText">0% complete</h4>
+            <p class="text-purple-300 font-semibold text-sm" id="remainingText">0 remaining</p>
+          </div>
+
+        </div>
+        <!-- stats -->
+        <div class="shadow-xl bg-purple-900/50 shadow-purple-900/30 backdrop-blur-sm px-8 py-6 rounded-lg">
+          <div class="flex gap-2 text-purple-200 font-semibold mb-4">
+            <i class="ri-donut-chart-fill"></i>
+            <h2>Statistics</h2>
+          </div>
+          <div class="grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
+            <div>
+              <p class="totalGoals text-purple-100 text-2xl font-bold">0</p>
+              <h2 class="text-purple-300">Total Goals</h2>
+            </div>
+            <div>
+              <p class="completedGoals text-purple-100 text-2xl font-bold">0</p>
+              <h2 class="text-purple-300">Completed</h2>
+            </div>
+            <div>
+              <p class="remainingGoals text-purple-100 text-2xl font-bold">0</p>
+              <h2 class="text-purple-300">Remaining</h2>
+            </div>
+            <div>
+              <p class="progressPercentage text-purple-100 text-2xl font-bold">25%</p>
+              <h2 class="text-purple-300">Progress</h2>
+            </div>
+          </div>
+        </div>
+        <!-- Add Goal inputs-->
+        <div class="shadow-xl bg-purple-900/50 shadow-purple-900/30 backdrop-blur-sm p-6 rounded-lg space-y-4">
+          <div class="flex items-center gap-3 text-purple-100">
+            <i class="ri-add-line text-purple-300  text-2xl font-light"></i>
+            <h2 class="text-xl">Add New Goal</h2>
+          </div>
+          <input id="goalInput" type="text" placeholder="What do you want to accomplish today?"
+            class="rounded px-3 py-2 w-full bg-purple-800/50 border-purple-600 focus:border-purple-400 text-purple-100">
+          <div class="grid grid-cols-2 gap-3">
+            <div>
+              <label for="priorityInput" class="block text-purple-100 mb-2">Priority</label>
+              <select id="priorityInput"
+                class="w-full rounded px-3 py-2 bg-purple-800/50 border border-purple-600 focus:border-purple-400 text-purple-100 backdrop-blur-sm shadow-inner hover:shadow-md hover:shadow-purple-700/30 transition duration-300">
+                <option class="bg-purple-900 text-purple-100">High</option>
+                <option class="bg-purple-900 text-purple-100" selected>Medium</option>
+                <option class="bg-purple-900 text-purple-100">Low</option>
+              </select>
+            </div>
+            <div>
+              <label for="categoryInput" class="block text-purple-100 mb-2">Category</label>
+              <select id="categoryInput"
+                class="w-full rounded px-3 py-2 bg-purple-800/50 border border-purple-600 focus:border-purple-400 text-purple-100 backdrop-blur-sm shadow-inner hover:shadow-md hover:shadow-purple-700/30 transition duration-300">
+                <option class="bg-purple-900 text-purple-100" selected>Work</option>
+                <option class="bg-purple-900 text-purple-100">Personal</option>
+                <option class="bg-purple-900 text-purple-100">Health</option>
+                <option class="bg-purple-900 text-purple-100">Learning</option>
+                <option class="bg-purple-900 text-purple-100">Other</option>
+              </select>
+            </div>
+          </div>
+          <!-- Add goal btn -->
+          <button
+            class="addGoals w-full py-2 rounded bg-gradient-to-r from-purple-600 via-violet-600 to-fuchsia-600 hover:from-purple-700 hover:via-violet-700 hover:to-fuchsia-700 text-white shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-[1.02] cursor-pointer mt-6">
+            <i class="ri-add-line text-purple-300  text-xl font-light"></i>
+            Add Goal
+          </button>
+        </div>
+        <!-- Remder Goals -->
+        <div class="renderGoals-container space-y-4">
+
+        </div>
+        <!-- No goals section -->
+        <div class="noGoals-container">
+
+        </div>
+      </div>
     </div>
-
   </main>
-
 
   <script src="script.js"></script>
 </body>

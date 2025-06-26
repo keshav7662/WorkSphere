@@ -33,7 +33,28 @@ allPages.forEach((page) => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   });
 })
+const displayBannerData = () => {
+  const dateDiv = document.querySelector('.date');
+  const timeDiv = document.querySelector('.time');
+  //date
+  const fullDateAndTime = new Date();
+  const date = String(fullDateAndTime.getDate()).padStart(2, '0');
+  const month = fullDateAndTime.toLocaleString('default', { month: 'long' });;
+  const year = fullDateAndTime.getFullYear();
+  const formattedDate = `${date} ${month}, ${year}`;
+  dateDiv.textContent = formattedDate;
 
+  //time
+  let hour = fullDateAndTime.getHours();
+  const ampm = hour >= 12 ? 'PM' : 'AM';
+  hour = hour % 12; 
+  hour = hour ? hour : 12;
+  const formattedHour = String(hour).padStart(2, '0');
+  const minutes = String(fullDateAndTime.getMinutes()).padStart(2, '0');
+
+  const formattedTime = `${formattedHour}:${minutes} ${ampm}`;
+  timeDiv.textContent = formattedTime;
+}
 const root = document.documentElement;
 changeTheme.addEventListener('click', () => {
   root.classList.toggle('dark');
@@ -49,9 +70,10 @@ if (localStorage.getItem('theme') === "dark") {
   root.classList.add('dark');
 }
 
+
+displayBannerData();
+
 // Render Todos
-
-
 const addTask = document.querySelector('.addTask');
 const input = document.querySelector('input');
 
@@ -71,17 +93,17 @@ const renderTodos = () => {
   const renderList = document.querySelector('.renderList');
   const uncompletedTodos = todos.filter((todo) => !todo.isCompleted) || [];
   if (uncompletedTodos.length === 0) {
-    renderList.innerHTML = `<p class="text-sm text-center italic text-gray-600">No Pending Tasks! Create One.</p>`
+    renderList.innerHTML = `<p p class="text-sm text-center italic text-gray-600" > No Pending Tasks! Create One.</p > `
   } else {
     renderList.innerHTML = uncompletedTodos.map((todo) => {
       const originalIdx = todos.indexOf(todo);
-      return `<div class="flex justify-between items-center border-b border-dashed border-gray-400 rounded shadow-md px-2 py-3 hover:shadow-lg">
+      return `<div div class="flex justify-between items-center border-b border-dashed border-gray-400 rounded shadow-md px-2 py-3 hover:shadow-lg" >
                 <p class="font-medium">${todo.task}</p>
                 <div class="flex items-center gap-4">
                   <input title="todo" type="checkbox" ${todo.isCompleted ? 'checked' : ''} onchange="handleCheckboxChange(${originalIdx})">
                   <i class="ri-delete-bin-3-line text-red-500 hover:text-red-700 cursor-pointer" onclick="deleteTodo(${originalIdx})"></i>
                 </div>
-              </div>`;
+              </div > `;
     }).join('');
   }
 }
@@ -91,17 +113,17 @@ const renderCompletedTodos = () => {
   const completedTodos = todos.filter((todo) => todo.isCompleted) || [];
 
   if (completedTodos.length === 0) {
-    completedList.innerHTML = `<p class="text-sm text-center italic text-gray-600">No Completed Tasks!</p>`;
+    completedList.innerHTML = `<p p class="text-sm text-center italic text-gray-600" > No Completed Tasks!</p > `;
   } else {
     completedList.innerHTML = completedTodos.map((todo) => {
       const originalIdx = todos.indexOf(todo); // because we need the original index not the filtered one
-      return `<div class="flex justify-between items-center border-b border-dashed border-gray-400 rounded shadow-md px-2 py-3 hover:shadow-lg">
+      return `<div div class="flex justify-between items-center border-b border-dashed border-gray-400 rounded shadow-md px-2 py-3 hover:shadow-lg" >
                 <p class="font-medium text-gray-500 line-through">${todo.task}</p>
                 <div class="flex items-center gap-4">
                   <input title="todo" type="checkbox" ${todo.isCompleted ? 'checked' : ''} onchange="handleCheckboxChange(${originalIdx})">
                   <i class="ri-delete-bin-3-line text-red-500 hover:text-red-700 cursor-pointer" onclick="deleteTodo(${originalIdx})"></i>
                 </div>
-              </div>`;
+              </div > `;
     }).join('');
   }
 }
@@ -145,7 +167,7 @@ hours.forEach((hour) => {
         : `${hour} AM`;
 
   collectAllInputs += `
-    <div class="flex gap-4 items-center px-4 py-2 border border-gray-400 rounded">
+  <div div class="flex gap-4 items-center px-4 py-2 border border-gray-400 rounded" >
       <label class="font-bold text-sm w-16">${labelText}</label>
       <input type="text" title="x"
         class="dailyPlanInput focus:outline-none p-2 border-b border-dashed border-gray-400 text-[var(--text-color)] text-lg font-medium flex-1 rounded">
@@ -308,6 +330,7 @@ const motivationPage = () => {
 motivationPage();
 
 const PomodoroTimer = () => {
+
   const timerController = document.querySelector('.timer-controller');
   timerController.innerHTML = `
     <div class="text-center space-y-6">
@@ -317,7 +340,7 @@ const PomodoroTimer = () => {
       <div>
         <span id="pomodoro-mode" class="px-4 py-1 rounded-full bg-gray-800 text-white font-medium text-sm hover:bg-gray-900"></span>
       </div>
-      <div class="mx-auto flex flex-col items-center space-y-6 rounded-lg w-[600px] bg-gray-800/80 py-6">
+      <div class="mx-auto flex flex-col items-center space-y-6 rounded-lg w-[600px] bg-[var(--bg-color)] shadow-lg py-6">
         <div id="pomodoro-display" class="w-44 h-44 border-4 border-[var(--text-color)] bg-[var(--bg-color)] text-[var(--text-color)] rounded-full flex justify-center items-center text-4xl font-bold shadow-lg transition-all duration-300 ring-2 ring-blue-400/30">
           25:00
         </div>
@@ -336,7 +359,7 @@ const PomodoroTimer = () => {
 
   // Timer logic
   let timer = null;
-  let mode = 'work'; 
+  let mode = 'work';
   let durations = { work: 25 * 60, short: 5 * 60, long: 15 * 60 };
   let remaining = durations[mode];
   let running = false;
@@ -433,5 +456,185 @@ const PomodoroTimer = () => {
   icon.className = 'ri-suitcase-line text-3xl';
   iconContainer.className = 'inline-flex items-center justify-center w-16 h-16 bg-gradient-to-r from-orange-800 to-gray-500 text-white rounded-full shadow-lg transition-all duration-300';
 }
-
 PomodoroTimer();
+
+const dailyGoals = () => {
+
+  const goalInputField = document.getElementById('goalInput');
+  const prioritySelector = document.getElementById('priorityInput');
+  const categorySelector = document.getElementById('categoryInput');
+  const addGoalButton = document.querySelector('.addGoals');
+  const noGoalsMessageContainer = document.querySelector('.noGoals-container');
+  const goalsListContainer = document.querySelector('.renderGoals-container');
+
+  const updateDate = () => {
+    const renderDate = document.querySelector('.date-time');
+    const fullDate = new Date();
+    const date = String(fullDate.getDate()).padStart(2, '0');
+    const month = fullDate.toLocaleString('default', { month: 'long' });;
+    const year = fullDate.getFullYear();
+    const formattedDate = `${date} ${month}, ${year}`;
+    renderDate.textContent = formattedDate;
+  }
+  const getStoredGoals = () => JSON.parse(localStorage.getItem('goal')) || [];
+
+  const saveGoalsToStorage = (goals) => {
+    localStorage.setItem('goal', JSON.stringify(goals));
+  };
+
+  const updateStatistics = () => {
+    const goals = getStoredGoals();
+    const completedGoals = goals.filter(goal => goal.isCompleted);
+    const remainingGoals = goals.filter(goal => !goal.isCompleted);
+
+    const completionPercentage = goals.length
+      ? Math.round((completedGoals.length / goals.length) * 100)
+      : 0;
+
+    document.querySelector('.totalGoals').textContent = goals.length;
+    document.querySelector('.completedGoals').textContent = completedGoals.length;
+    document.querySelector('.remainingGoals').textContent = remainingGoals.length;
+    document.querySelector('.progressPercentage').textContent = `${completionPercentage}%`;
+
+    document.querySelector('.loader-inner').style.width = `${completionPercentage}%`;
+    document.getElementById('completeText').textContent = `${completionPercentage}% complete`;
+    document.getElementById('remainingText').textContent = `${goals.length - completedGoals.length} remaining`;
+    document.querySelector('.remaining-by-completed').textContent = `${completedGoals.length}/${goals.length} completed`;
+  };
+  const renderGoalsList = () => {
+    const goals = getStoredGoals();
+    goalsListContainer.innerHTML = '';
+    noGoalsMessageContainer.innerHTML = '';
+
+    if (goals.length === 0) {
+      noGoalsMessageContainer.innerHTML = `
+        <div class="text-center shadow-xl bg-purple-900/50 shadow-purple-900/30 backdrop-blur-sm hover:scale-[1.01] transition-all duration-300 py-10 rounded-lg">
+          <i class="ri-focus-2-line text-6xl text-purple-400 mb-4"></i>
+          <h2 class="text-purple-300 font-semibold text-xl mb-2">No goals yet</h2>
+          <p class="text-sm text-purple-400">Add your first goal to get started on a productive day!</p>
+        </div>
+      `;
+      return;
+    }
+    goalsListContainer.innerHTML = goals.map((goal, idx) => {
+      return `<div
+            class="shadow-xl bg-purple-900/50 shadow-purple-900/30 backdrop-blur-sm ${goal.isCompleted ? '' : 'hover:scale-[1.01]'} transition-all duration-300 p-6 rounded-lg space-y-4">
+            <div class="flex justify-between items-center">
+              <div class="flex gap-6 items-center">
+                <input type="checkbox" title="Mark as complete" ${goal.isCompleted ? 'checked' : ''} data-idx=${idx}>
+                <div>
+                  <h3 class="goal-text text-purple-300 text-xl font-semibold mb-3 ${goal.isCompleted ? 'line-through text-purple-500' : ''}" data-idx="${idx}">
+                    ${goal.name}
+                  </h3>
+                  <div class="flex gap-2 items-center text-white">
+                    <p class="px-2 py-1 text-xs bg-orange-500 rounded-full">${goal.priority.toLowerCase()}</p>
+                    <p class="px-2 py-1 text-xs border border-puple-300 rounded-full">${goal.category.toLowerCase()}</p>
+                  </div>
+                </div>
+              </div>
+              <div class="flex gap-4 items-center text-purple-300 text-2xl">
+                <i
+                  class="ri-edit-line text-purple-400 hover:text-purple-200 hover:bg-purple-800 cursor-pointer px-2 py-1 rounded edit-goal" data-idx=${idx}></i>
+                <i
+                  class="ri-delete-bin-line text-purple-400 hover:text-red-400 hover:bg-red-900/20 cursor-pointer px-2 py-1 rounded delete-goal" data-idx=${idx}></i>
+              </div>
+            </div>
+          </div>`
+    }).join('')
+
+  }
+
+  addGoalButton.addEventListener('click', () => {
+    const name = goalInputField.value.trim();
+    const priority = prioritySelector.value;
+    const category = categorySelector.value;
+
+    if (!name) {
+      alert('Please enter a valid goal.');
+      return;
+    }
+
+    const newGoal = {
+      name,
+      priority,
+      category,
+      isCompleted: false
+    };
+
+    const goals = getStoredGoals();
+    goals.push(newGoal);
+    saveGoalsToStorage(goals);
+
+    goalInputField.value = '';
+    updateStatistics();
+    renderGoalsList();
+  });
+
+  //checkboxListeners
+  goalsListContainer.addEventListener('change', (e) => {
+    if (e.target.type === 'checkbox') {
+      const idx = parseInt(e.target.getAttribute('data-idx'));
+      const goals = getStoredGoals();
+      goals[idx].isCompleted = e.target.checked;
+      saveGoalsToStorage(goals);
+      renderGoalsList();
+      updateStatistics();
+    }
+  })
+
+  // edit and delete
+  goalsListContainer.addEventListener('click', (e) => {
+    const editBtn = e.target.closest('.edit-goal');
+    const deleteBtn = e.target.closest('.delete-goal')
+    if (editBtn) {
+      const idx = parseInt(editBtn.dataset.idx);
+      const h3 = goalsListContainer.querySelector(`.goal-text[data-idx="${idx}"]`);
+
+      // Replace <h3> with <input>
+      const input = document.createElement('input');
+      input.type = 'text';
+      input.value = h3.textContent.trim();
+      input.className = 'goal-edit-input text-purple-300 text-xl font-semibold mb-3 bg-transparent border-b border-purple-400 focus:outline-none w-full';
+      input.setAttribute('data-idx', idx);
+
+      h3.replaceWith(input);
+      input.focus();
+
+      const saveEdit = () => {
+        const newValue = input.value.trim();
+        if (newValue !== '') {
+          const goals = getStoredGoals();
+          goals[idx].name = newValue;
+          saveGoalsToStorage(goals);
+          updateStatistics();
+          renderGoalsList();
+        } else {
+          renderGoalsList();
+        }
+      };
+
+      input.addEventListener('blur', saveEdit);
+      input.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter') {
+          saveEdit();
+        }
+      });
+    }
+    if (deleteBtn) {
+      const idx = parseInt(e.target.getAttribute('data-idx'))
+      const goals = getStoredGoals();
+      if (confirm('Are you sure you want to delete this goal?')) {
+        goals.splice(idx, 1);
+        saveGoalsToStorage(goals);
+        updateStatistics();
+        renderGoalsList();
+      }
+    }
+  })
+
+  // Initialize UI on page load
+  updateStatistics();
+  renderGoalsList();
+  updateDate();
+};
+dailyGoals();
