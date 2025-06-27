@@ -8,7 +8,7 @@ let todos = JSON.parse(localStorage.getItem('todos')) || [];
 // Update total tasks count
 const updateTotalTasks = () => {
   const totalCount = todos.length;
-  totalTasks.innerHTML = `<h3 class="text-lg font-medium text-gray-400 inline-block border-b">Total Tasks : ${totalCount}</h3>`;
+  totalTasks.textContent = `Total Tasks : ${totalCount}`;
 }
 updateTotalTasks();
 
@@ -47,7 +47,7 @@ const displayBannerData = () => {
   //time
   let hour = fullDateAndTime.getHours();
   const ampm = hour >= 12 ? 'PM' : 'AM';
-  hour = hour % 12; 
+  hour = hour % 12;
   hour = hour ? hour : 12;
   const formattedHour = String(hour).padStart(2, '0');
   const minutes = String(fullDateAndTime.getMinutes()).padStart(2, '0');
@@ -157,7 +157,7 @@ const renderPlannerInputs = document.querySelector('.render-planner');
 const hours = Array.from({ length: 16 }, (_, idx) => 6 + idx);
 
 let collectAllInputs = '';
-hours.forEach((hour) => {
+hours.forEach((hour, idx) => {
   const labelText = hour === 12
     ? '12 PM'
     : hour === 0
@@ -169,8 +169,8 @@ hours.forEach((hour) => {
   collectAllInputs += `
   <div div class="flex gap-4 items-center px-4 py-2 border border-gray-400 rounded" >
       <label class="font-bold text-sm w-16">${labelText}</label>
-      <input type="text" title="x"
-        class="dailyPlanInput focus:outline-none p-2 border-b border-dashed border-gray-400 text-[var(--text-color)] text-lg font-medium flex-1 rounded">
+      <input type="text" title="x" placeholder="${idx === 0 ? 'Plan your next goal here...' : ''}"
+        class="dailyPlanInput focus:outline-none p-2 border-b border-gray-400 text-[var(--text-color)] text-sm md:text-lg italic font-medium flex-1">
       <input class="dailyPlanCheckbox" type="checkbox" title="c">
     </div>
   `;
@@ -178,7 +178,7 @@ hours.forEach((hour) => {
 
 renderPlannerInputs.innerHTML = collectAllInputs;
 
-const getTodayDate = () => new Date().toISOString().split('T')[0];
+const getTodayDate = () => new Date().toISOString().split('T')[0]; //yyyy-mm-dd
 
 const loadPlannerData = () => {
   const savedDate = localStorage.getItem(PLANNER_DATE_KEY);
@@ -332,30 +332,56 @@ motivationPage();
 const PomodoroTimer = () => {
 
   const timerController = document.querySelector('.timer-controller');
-  timerController.innerHTML = `
-    <div class="text-center space-y-6">
-      <div id="pomodoro-icon-container" class="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-r from-orange-800 to-gray-500 text-white rounded-full shadow-lg transition-all duration-300">
-        <i id="pomodoro-icon" class="ri-suitcase-line"></i>
-      </div>
-      <div>
-        <span id="pomodoro-mode" class="px-4 py-1 rounded-full bg-gray-800 text-white font-medium text-sm hover:bg-gray-900"></span>
-      </div>
-      <div class="mx-auto flex flex-col items-center space-y-6 rounded-lg w-[600px] bg-[var(--bg-color)] shadow-lg py-6">
-        <div id="pomodoro-display" class="w-44 h-44 border-4 border-[var(--text-color)] bg-[var(--bg-color)] text-[var(--text-color)] rounded-full flex justify-center items-center text-4xl font-bold shadow-lg transition-all duration-300 ring-2 ring-blue-400/30">
-          25:00
-        </div>
-        <div class="flex gap-3">
-          <button id="pomodoro-start" class="bg-gray-900 px-8 py-2 text-white rounded-full cursor-pointer">Start</button>
-          <button id="pomodoro-reset" class="bg-gray-900/60 px-8 py-2 text-white rounded-full cursor-pointer">Reset</button>
-        </div>
-        <div>
-          <button id="pomodoro-work" class="bg-[var(--bg-color)] text-[var(--text-color)] px-8 py-2 rounded-full cursor-pointer text-xs font-medium">Work</button>
-          <button id="pomodoro-short" class="bg-[var(--bg-color)] text-[var(--text-color)] px-8 py-2 rounded-full cursor-pointer text-xs font-medium">Short Break</button>
-          <button id="pomodoro-long" class="bg-[var(--bg-color)] text-[var(--text-color)] px-8 py-2 rounded-full cursor-pointer text-xs font-medium">Long Break</button>
-        </div>
-      </div>
-    </div>
-  `;
+  timerController.innerHTML = `<div class="text-center space-y-6 w-full">
+
+            <!-- Icon and Mode -->
+            <div id="pomodoro-icon-container"
+              class="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-r from-orange-800 to-gray-500 text-white rounded-full shadow-lg transition-all duration-300 mx-auto">
+              <i id="pomodoro-icon" class="ri-suitcase-line"></i>
+            </div>
+
+            <div>
+              <span id="pomodoro-mode"
+                class="px-4 py-1 rounded-full bg-gray-800 text-white font-medium text-sm hover:bg-gray-900">
+              </span>
+            </div>
+
+            <!-- Timer Display and Controls -->
+            <div
+              class="mx-auto flex flex-col items-center space-y-6 rounded-lg max-w-full sm:w-[600px] bg-[var(--bg-color)] shadow-lg py-6 px-4">
+
+              <!-- Timer Circle -->
+              <div id="pomodoro-display"
+                class="w-44 h-44 border-4 border-[var(--text-color)] bg-[var(--bg-color)] text-[var(--text-color)] rounded-full flex justify-center items-center text-4xl font-bold shadow-lg transition-all duration-300 ring-2 ring-blue-400/30">
+                25:00
+              </div>
+
+              <!-- Start/Reset Buttons -->
+              <div class="flex gap-3 flex-wrap justify-center">
+                <button id="pomodoro-start"
+                  class="bg-gray-900 px-8 py-2 text-white rounded-full cursor-pointer">Start</button>
+                <button id="pomodoro-reset"
+                  class="bg-gray-700 px-8 py-2 text-white rounded-full cursor-pointer">Reset</button>
+              </div>
+
+              <!-- Mode Switch Buttons -->
+              <div class="flex flex-wrap gap-2 justify-center">
+                <button id="pomodoro-work"
+                  class="bg-[var(--bg-color)] text-[var(--text-color)] px-6 py-2 rounded-full cursor-pointer text-xs font-medium border border-gray-300">
+                  Work
+                </button>
+                <button id="pomodoro-short"
+                  class="bg-[var(--bg-color)] text-[var(--text-color)] px-6 py-2 rounded-full cursor-pointer text-xs font-medium border border-gray-300">
+                  Short Break
+                </button>
+                <button id="pomodoro-long"
+                  class="bg-[var(--bg-color)] text-[var(--text-color)] px-6 py-2 rounded-full cursor-pointer text-xs font-medium border border-gray-300">
+                  Long Break
+                </button>
+              </div>
+
+            </div>
+          </div>`;
 
   // Timer logic
   let timer = null;

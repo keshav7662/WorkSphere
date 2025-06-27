@@ -52,7 +52,7 @@
           </div>
           <!-- Banner display data -->
           <div class="bannerDisplay flex items-center gap-2 text-white">
-            <h2 class="date text-gray-400 font-semibold bg-gray-400/5  px-2 py-1 rounded"> 24 May, 2025</h2>
+            <h2 class="date text-gray-400 font-semibold bg-white/5  px-2 py-1 rounded"> 24 May, 2025</h2>
             <h2 class="time text-gray-400 font-semibold bg-white/5  px-2 py-1 rounded">08:20 PM</h2>
           </div>
 
@@ -137,16 +137,16 @@
       <div class="max-w-4xl mx-auto space-y-6">
         <div class="flex justify-between items-center mb-10">
           <button type="button"
-            class="goHome px-3 py-2 text-xs font-medium text-center text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800  rounded-lg  me-2 mb-2 cursor-pointer">
+            class="goHome px-3 py-2 text-xs font-medium text-center text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800  rounded-full  me-2 mb-2 cursor-pointer">
             <i class="ri-arrow-left-line"></i>
             <span>Back</span>
           </button>
 
           <div class="text-center space-y-2">
-            <h1 class="text-4xl font-bold">Task Manager</h1>
-            <p class="text-sm text-gray-400">Stay organized and productive</p>
+            <h1 class="text-xl md:text-4xl font-bold">Task Manager</h1>
+            <p class="text-xs md:text-sm text-gray-400">Stay organized and productive</p>
           </div>
-          <div class="totalTasks"></div>
+          <div class="totalTasks text-sm border-b pb-1"></div>
         </div>
 
         <div class="flex gap-6 justify-center">
@@ -155,8 +155,8 @@
           <button class="addTask bg-red-500 text-white p-2 rounded flex-shrink-0 cursor-pointer">Add Task +</button>
         </div>
 
-        <div class="grid grid-cols-2 border border-gray-400 rounded">
-          <div class="p-4 space-y-4 border-r border-gray-400">
+        <div class="grid grid-cols-1 md:grid-cols-2 border border-gray-400 rounded">
+          <div class="p-4 space-y-4 border-b md:border-r border-gray-400">
             <h1 class="text-2xl font-medium text-red-600 text-center mb-5">Pending Tasks</h1>
             <div class="renderList space-y-4">
 
@@ -176,86 +176,97 @@
       <div class="max-w-4xl mx-auto space-y-6">
         <div class="flex items-center mb-10">
           <button type="button"
-            class="goHome px-3 py-2 text-xs font-medium text-center text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800  rounded-lg  me-2 mb-2 cursor-pointer">
+            class="goHome px-3 py-2 text-xs font-medium text-center text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800  rounded-full  me-2 mb-2 cursor-pointer">
             <i class="ri-arrow-left-line"></i>
             <span>Back</span>
           </button>
 
-          <h1 class="text-4xl font-bold mx-auto">
+          <h1 class="text-2xl md:text-4xl -mt-2 font-bold mx-auto">
             Daily Planner
           </h1>
         </div>
         <div class="render-planner space-y-2 overflow-y-auto"></div>
       </div>
     </div>
-    <div id="MotivationPage" class="page hideParent min-h-screen bg-[var(--bg-color)] text-[var(--text-color)] p-5">
-      <div class="max-w-4xl mx-auto space-y-4">
-        <!-- Back Button -->
-        <button type="button"
-          class="goHome px-3 py-2 text-xs font-medium text-center text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800  rounded-lg  me-2 mb-2 cursor-pointer">
-          <i class="ri-arrow-left-line"></i>
-          <span>Back</span>
-        </button>
-
-        <!-- Title Section -->
-        <div class="text-center space-y-3">
-          <div
-            class="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-r from-orange-500 to-rose-500 text-white rounded-full shadow-lg">
-            <i class="ri-double-quotes-l text-2xl"></i>
-          </div>
-          <h1
-            class="text-4xl sm:text-5xl font-extrabold bg-gradient-to-r from-orange-600 to-rose-600 bg-clip-text text-transparent pb-4">
-            Daily Inspiration
-          </h1>
-          <p class="text-base sm:text-lg text-gray-600 max-w-xl mx-auto italic">
-            Discover powerful quotes that inspire, motivate, and transform your mindset
-          </p>
-        </div>
-
-        <!-- Quote Card -->
-        <div class="bg-gray-50 rounded-2xl p-4 shadow-lg text-center min-h-36">
-          <div class="flex justify-start">
-            <i class="ri-double-quotes-l text-orange-400 text-3xl"></i>
-          </div>
-          <h2 class="renderQuote text-xl sm:text-2xl md:text-3xl font-light text-gray-800 "></h2>
-          <div class="flex justify-end">
-            <i class="ri-double-quotes-r text-orange-400 text-3xl"></i>
-          </div>
-
-          <div class="flex justify-center">
-            <h2 class="renderAuthor text-orange-600 font-medium text-2xl"></h2>
-          </div>
-        </div>
-
-        <!-- Generate Button -->
-        <div class="flex justify-center">
+    <div id="MotivationPage"
+      class="page hideParent min-h-screen bg-[var(--bg-color)] text-[var(--text-color)] flex justify-center px-4 py-6">
+      <div class="max-w-4xl w-full flex flex-col">
+        <div>
           <button
-            class="generateQuote bg-blue-500 text-white font-medium text-sm sm:text-base rounded-full px-6 py-3 shadow-md hover:bg-blue-600 active:scale-95 transition-transform duration-200 flex items-center gap-2 cursor-pointer ">
-            <i class="ri-loop-left-line text-lg"></i>
-            <span>New Quote</span>
+            class="goHome px-3 py-2 text-xs font-medium text-center text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 rounded-full mb-4 cursor-pointer">
+            <i class="ri-arrow-left-line"></i>
+            <span>Back</span>
           </button>
+        </div>
+
+        <!-- Content Area: vertically centered -->
+        <div class="flex-grow flex flex-col items-center justify-center space-y-6 text-center">
+          <!-- Title -->
+          <div class="space-y-3">
+            <div
+              class="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-r from-orange-500 to-rose-500 text-white rounded-full shadow-lg">
+              <i class="ri-double-quotes-l text-2xl"></i>
+            </div>
+            <h1
+              class="text-4xl sm:text-5xl font-extrabold bg-gradient-to-r from-orange-600 to-rose-600 bg-clip-text text-transparent pb-4">
+              Daily Inspiration
+            </h1>
+            <p class="text-base sm:text-lg text-gray-600 max-w-xl mx-auto italic">
+              Discover powerful quotes that inspire, motivate, and transform your mindset
+            </p>
+          </div>
+
+          <!-- Quote Card -->
+          <div class="bg-gray-50 rounded-2xl p-4 shadow-lg text-center min-h-36 w-full">
+            <div class="flex justify-start">
+              <i class="ri-double-quotes-l text-orange-400 text-3xl"></i>
+            </div>
+            <h2 class="renderQuote text-xl sm:text-2xl md:text-3xl font-light text-gray-800"></h2>
+            <div class="flex justify-end">
+              <i class="ri-double-quotes-r text-orange-400 text-3xl"></i>
+            </div>
+            <div class="flex justify-center">
+              <h2 class="renderAuthor text-orange-600 font-medium text-2xl"></h2>
+            </div>
+          </div>
+
+          <!-- Generate Button -->
+          <div>
+            <button
+              class="generateQuote bg-blue-500 text-white font-medium text-sm sm:text-base rounded-full px-6 py-3 shadow-md hover:bg-blue-600 active:scale-95 transition-transform duration-200 flex items-center gap-2 cursor-pointer">
+              <i class="ri-loop-left-line text-lg"></i>
+              <span>New Quote</span>
+            </button>
+          </div>
+
         </div>
       </div>
     </div>
-    <div id="PomodoroPage" class="page hideParent min-h-screen bg-[var(--bg-color)] text-[var(--text-color)] py-10">
-      <div class="max-w-4xl mx-auto">
-        <button type="button"
-          class="goHome px-3 py-2 text-xs font-medium text-center text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800  rounded-lg  me-2 mb-2 cursor-pointer">
-          <i class="ri-arrow-left-line"></i>
-          <span>Back</span>
-        </button>
-        <div class="timer-controller">
+    <div id="PomodoroPage"
+      class="page hideParent min-h-screen bg-[var(--bg-color)] text-[var(--text-color)] flex justify-center px-4 py-6">
+      <!-- Centered container -->
+      <div class="max-w-4xl w-full flex flex-col">
+        <!-- Back Button (top left within container) -->
+        <div>
+          <button type="button"
+            class="goHome px-3 py-2 text-xs font-medium text-center text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 rounded-full mb-4 cursor-pointer">
+            <i class="ri-arrow-left-line"></i>
+            <span>Back</span>
+          </button>
+        </div>
 
+        <!-- Timer Section: vertically centered -->
+        <div class="timer-controller flex-grow flex flex-col items-center justify-center">
         </div>
       </div>
     </div>
     <div id="DailyGoalsPage"
-      class="page hideParent min-h-screen bg-gradient-to-r from-purple-950 via-violet-900 to-fuchsia-950 py-10">
+      class="page hideParent min-h-screen bg-gradient-to-r from-purple-950 via-violet-900 to-fuchsia-950 px-5 py-10">
       <div class="max-w-4xl mx-auto space-y-8">
         <!-- Title -->
-        <div class="flex gap-6 items-center">
+        <div class="flex justify-between  items-center">
           <button type="button"
-            class="goHome px-3 py-2 text-xs font-medium text-center text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800  rounded-lg  me-2 mb-2 cursor-pointer">
+            class="goHome px-3 py-2 text-xs font-medium text-center text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800  rounded-full  me-2 mb-2 cursor-pointer">
             <i class="ri-arrow-left-line"></i>
             <span>Back</span>
           </button>
@@ -266,7 +277,7 @@
             </div>
             <div>
               <h2
-                class="text-4xl font-bold bg-gradient-to-r from-purple-300 dark:to-violet-300 bg-clip-text text-transparent">
+                class="text-2xl font-bold bg-gradient-to-r from-purple-300 dark:to-violet-300 bg-clip-text text-transparent">
                 DailyGoals</h2>
               <h4 class="text-purple-600 dark:text-purple-300 flex items-center gap-2">
                 <i class="ri-calendar-line"></i>
